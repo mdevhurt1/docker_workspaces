@@ -1,0 +1,31 @@
+{
+    "name": "ENPM 700 Workspace",
+    "dockerFile": "Dockerfile",
+    "workspaceFolder": "/home/ws",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/home/ws,type=bind",
+    "customizations": {
+        "vscode": {
+            "extensions":[
+                "llvm-vs-code-extensions.vscode-clangd",
+                "cschlosser.doxdocgen",
+                "jebbs.plantuml",
+                "mhutchie.git-graph"
+            ]
+        }
+    },
+    "runArgs": [
+        "--gpus",
+        "all",
+        "--env=DISPLAY",
+        "--volume=/tmp/.X11-unix:/tmp/.X11-unix:rw"
+    ],
+    "containerEnv": {
+        "DISPLAY": "${localEnv:DISPLAY}",
+        "QT_X11_NO_MITSHM": "1",
+        "LIBGL_ALWAYS_SOFTWARE": "1",
+        "MESA_LOADER_DRIVER_OVERRIDE": "llvmpipe",
+        "QT_QPA_PLATFORM": "xcb",
+        "XDG_RUNTIME_DIR": "/tmp/runtime-${containerUser}"
+    },
+    "remoteUser": "vscode"
+}
