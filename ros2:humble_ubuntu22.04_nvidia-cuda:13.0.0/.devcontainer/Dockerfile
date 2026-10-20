@@ -36,7 +36,6 @@
     x11-apps \
     lsb-release; \
   python3 -m pip install -U pre-commit identify; \
-  git config --global credential.helper store; \
   rm -rf /var/lib/apt/lists/*; \
   echo "Basic dependencies installed."
  
